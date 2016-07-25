@@ -1,4 +1,5 @@
 'use strict';
+
 import PasswordFactory from '../../../lib/password.factory';
 
 describe('Unit test for Password Factory', () => {

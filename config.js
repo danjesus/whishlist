@@ -6,7 +6,8 @@ module.exports = {
     password: null,
     host: '127.0.0.1',
     params: {
-      dialect: 'postgres'
+      dialect: 'postgres',
+      logging: false
     },
     port: 3000
   }

@@ -1,6 +1,6 @@
 'use strict';
 
-describe('Routes : Index', () => {
+describe('Index route', () => {
 
     it('should return api status 200', done => {
       request.get('/')
