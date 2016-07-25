@@ -3,3 +3,4 @@
 --compilers js:babel-register
 --recursive
 --slow 5000
+--timeout 5000
