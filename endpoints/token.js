@@ -4,7 +4,6 @@ import jwt from 'jsonwebtoken';
 
 module.exports = app => {
   const User = app.db.models.User;
-  const config = app.config[app.get('env')];
 
   app.post('/token', (req, res) => {
     if (!req.body.email || !req.body.password) {
@@ -30,7 +29,7 @@ module.exports = app => {
         res
           .status(200)
           .json({
-            token: jwt.sign(payload, config.secret)
+            token: jwt.sign(payload, app.get('jwtSecret'))
           });
       });
   })
