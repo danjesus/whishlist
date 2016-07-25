@@ -4,14 +4,14 @@ import Sequelize from 'sequelize';
 import fs from 'fs';
 import path from 'path';
 
-let config = require('./config.js');
 let db = null;
 
 module.exports = (app) => {
 
   if (null !== db) return db;
-
-  let connection = new Sequelize(
+  let config = app.config[app.get('env')];
+  
+  let sequelize = new Sequelize(
     config.database,
     config.username,
     config.password,
@@ -19,7 +19,7 @@ module.exports = (app) => {
   );
 
   db = {
-    connection,
+    sequelize,
     Sequelize,
     models: {}
   };
@@ -28,7 +28,7 @@ module.exports = (app) => {
 
   fs.readdirSync(dir).forEach(file => {
     let modelDir = path.join(dir, file);
-    let model = connection.import(modelDir);
+    let model = sequelize.import(modelDir);
 
     if (model)
       db.models[model.name] = model;

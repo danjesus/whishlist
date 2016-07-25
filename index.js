@@ -6,8 +6,8 @@ import consign from 'consign';
 const app = express();
 
 consign({verbose: false})
-  .include('db.js')
-  .then('models')
+.include('./config.js')
+  .then('db.js')
   .then('lib/middlewares.js')
   .then('endpoints')
   .then('lib/boot.js')
