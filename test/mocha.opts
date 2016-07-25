@@ -1,0 +1,4 @@
+--require test/helper
+--compilers js:babel-register
+--recursive
+--slow 5000
