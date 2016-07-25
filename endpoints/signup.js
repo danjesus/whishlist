@@ -38,7 +38,7 @@ module.exports = app => {
       }
 
       req.body.full_address = fullAddress;
-
+      
       User.create(req.body)
         .then(result => {
           res

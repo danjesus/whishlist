@@ -7,7 +7,7 @@ describe('Signup route', () => {
       .send({
         name: 'Jhon due',
         email: 'jhondue@gmail.com',
-        password: 'lalalala',
+        password: '123456',
         zipcode: '04429280'
       })
       .expect(201)
@@ -33,7 +33,7 @@ describe('Signup route', () => {
       .send({
         name: 'Jhon due',
         email: 'jhondue@gmail.com',
-        password: 'lalalala',
+        password: '123456',
         zipcode: '00000'
       })
       .expect(400)
