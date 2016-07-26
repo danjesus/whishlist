@@ -16,8 +16,7 @@ Create a postgresql database
 Put your credentials in config.development.js
 
 ### Run tests
-Configure your test credentials in config.test.js
-
+Test are runing over sqlite database
 ```$ npm test```
 
 ### Run local
