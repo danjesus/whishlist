@@ -57,6 +57,18 @@ describe('Whishlist route', () => {
       })
   });
 
+  it('should retrieve a whish list item', done => {
+    request.get(`/whishlist/${fakeWhishes[0].id}`)
+      .set('Authorization', `JWT ${token}`)
+      .expect(200)
+      .end((err, res) => {
+        assert.equal(fakeWhishes[0].average_value, res.body.average_value);
+        assert.equal(fakeWhishes[0].description, res.body.description);
+        assert.equal(fakeWhishes[0].name, res.body.name);
+        done(err);
+      });
+  });
+
   it('should update a whish list item', done => {
     request.put(`/whishlist/${fakeWhishes[0].id}`)
       .set('Authorization', `JWT ${token}`)
