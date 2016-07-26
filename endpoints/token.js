@@ -6,7 +6,7 @@ module.exports = app => {
   const User = app.db.models.User;
 
   /**
-   * @api {post} /token Authenticated Token
+   * @api {post} /token Get a Token
    * @apiGroup Crendential
    * @apiParam {String} email User email
    * @apiParam {String} password User password
