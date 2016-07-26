@@ -1,7 +1,7 @@
 'use strict';
 
 describe('Signup route', () => {
-
+  
   it("should create a user", done => {
     request.post('/signup')
       .send({

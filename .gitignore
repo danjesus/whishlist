@@ -4,4 +4,6 @@ npm_debug.json
 logs/*.log
 public/apidoc
 .DS_Store
+whishlist_test.sqlite
+resources/*
 

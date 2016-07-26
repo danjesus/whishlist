@@ -6,8 +6,8 @@ module.exports = {
   database: 'whishlist',
   username: 'danjesus',
   password: null,
-  host: '127.0.0.1',
   params: {
+    host: '127.0.0.1',
     dialect: 'postgres',
     logging: (sql) => {
       logger.info(`[${new Date()}] ${sql}`);

@@ -1,10 +1,11 @@
 module.exports = {
   database: "whishlist_test",
-  username: "danjesus",
+  username: "",
   password: "",
   params: {
-    dialect: "postgres",
+    dialect: "sqlite",
     logging: false,
+    storage: "whishlist_test.sqlite",
     sync: {
       force: true
     },

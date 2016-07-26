@@ -7,13 +7,13 @@ describe('Whishlist route', () => {
 
   let token;
   let fakeWhishes;
-
+  
   beforeEach(done => {
-    createWhishlist((whishes, user) => {
-      token = jwt.sign({ id: user.id }, app.get('jwtSecret'));
-      fakeWhishes = whishes;
-      done();
-    });
+      createWhishlist((whishes, user) => {
+        token = jwt.sign({ id: user.id }, app.get('jwtSecret'));
+        fakeWhishes = whishes;
+        done();
+      });
   });
 
   afterEach(done=> {

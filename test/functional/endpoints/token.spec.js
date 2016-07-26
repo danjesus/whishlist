@@ -4,7 +4,7 @@ import {createUser, emptyUsers} from './fixture';
 
 describe('Token route', () => {
   const User = app.db.models.User;
-
+  
   beforeEach(done => {
     createUser().then(user => {
       done();
