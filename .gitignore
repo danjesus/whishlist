@@ -2,4 +2,6 @@ node_modules
 npm_debug.json
 *.swp
 logs/*.log
+public/apidoc
+.DS_Store
 
