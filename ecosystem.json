@@ -1,0 +1,11 @@
+{
+  "apps" : [
+    {
+      "name": "Whishlist API",
+      "script": "index.js",
+      "exec_interpreter": "babel-node",
+      "exec_mode": "fork",
+      "error_file": "./logs/err.log"
+    }
+  ]
+}
