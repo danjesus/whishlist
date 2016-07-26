@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "NODE_ENV=test mocha test",
-    "start": "npm run apidoc; babel-node index.js",
+    "start": "babel-node index.js",
     "babel-node": "babel-node",
     "apidoc": "apidoc -i endpoints -o public/apidoc",
     "pm2": "pm2 delete ecosystem.json; pm2 startOrReload ecosystem.json --interpreter babel-node",

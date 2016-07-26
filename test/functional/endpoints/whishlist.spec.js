@@ -7,16 +7,16 @@ describe('Whishlist route', () => {
 
   let token;
   let fakeWhishes;
-  
+
   beforeEach(done => {
-      createWhishlist((whishes, user) => {
-        token = jwt.sign({ id: user.id }, app.get('jwtSecret'));
-        fakeWhishes = whishes;
-        done();
-      });
+    createWhishlist((whishes, user) => {
+      token = jwt.sign({ id: user.id }, app.get('jwtSecret'));
+      fakeWhishes = whishes;
+      done();
+    });
   });
 
-  afterEach(done=> {
+  afterEach(done => {
     emptyUsers().then(() => {
       emptyWhishlists().then(() => done())
     });
@@ -35,6 +35,23 @@ describe('Whishlist route', () => {
           assert.equal(fakeWhishes[index].description, res.body[index].description);
           assert.equal(fakeWhishes[index].name, res.body[index].name);
         }
+
+        done(err);
+      });
+  });
+
+  it('should search by name in whishlist', done => {
+    request.get('/whishlist?name=Mac')
+      .set('Authorization', `JWT ${token}`)
+      .expect(200)
+      .end((err, res) => {
+
+        let index = 0;
+
+        assert.equal(res.body.length, 1);
+        assert.equal(fakeWhishes[index].average_value, res.body[index].average_value);
+        assert.equal(fakeWhishes[index].description, res.body[index].description);
+        assert.equal(fakeWhishes[index].name, res.body[index].name);
 
         done(err);
       });

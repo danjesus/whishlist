@@ -9,7 +9,7 @@ module.exports = app => {
   app.route('/user')
     .all(app.auth.authenticate())
     /**
-     * @api {put} /user Fetch current user data
+     * @api {get} /user Fetch current user data
      * @apiGroup User
      * @apiHeader {String} Authorization token
      * @apiHeaderExample {json} Header

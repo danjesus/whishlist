@@ -3,11 +3,12 @@
 module.exports = app => {
   const Whishlist = app.db.models.Whishlist;
   /**
-     * @api {get} /whishlist List all items
+     * @api {get} /whishlist/?name? List all items
      * @apiGroup Whishlist
      * @apiHeader {String} Authorization token
      * @apiHeaderExample {json} Header
      *    {"Authorization": "JWT token.xpto"}
+     * @apiParam {query} name Query string name 
      * @apiSuccess {Integer} id Item id 
      * @apiSuccess {String} name Item name
      * @apiSuccess {String} description Item description
@@ -39,7 +40,7 @@ module.exports = app => {
     .all(app.auth.authenticate())
     .get((req, res) => {
 
-      Whishlist.findAll({
+      let queryParams = {
         attributes: [
           'name',
           'id',
@@ -51,7 +52,17 @@ module.exports = app => {
         where: {
           user_id: req.user.id
         }
-      }).then(result => {
+      };
+
+      if (req.query.name) {
+        queryParams.where.name = {
+          $like: `%${req.query.name}%`
+        };
+      }
+
+      Whishlist.findAll(
+        queryParams
+      ).then(result => {
         res.status(200).json(result);
       });
     })
