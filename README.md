@@ -1,9 +1,12 @@
 # whishlist
 A simple whishlist made with nodejs, express and postgresql
 
-### Dependencies
-* NodeJs
-* PostgreSQL 
+### System Dependencies
+* NodeJs V6
+* PostgreSQL
+
+### Install app dependecies 
+```$npm install``` 
 
 ### How to use
 Create a postgresql database
@@ -13,6 +16,8 @@ Create a postgresql database
 Put your credentials in config.development.js
 
 ### Run tests
+Configure your test credentials in config.test.js
+
 ```$ npm test```
 
 ### Run local
