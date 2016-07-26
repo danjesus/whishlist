@@ -1,4 +1,5 @@
 'use strict';
+
 import PasswordFactory from '../lib/password.factory';
 
 module.exports = function (sequelize, DataTypes) {
@@ -17,7 +18,7 @@ module.exports = function (sequelize, DataTypes) {
       },
       classMethods: {
         associate: function (models) {
-
+          User.hasMany(models.Whishlist);
         },
         isPassword: (encodedPassword, password) => {
           return PasswordFactory.compare(password, encodedPassword);

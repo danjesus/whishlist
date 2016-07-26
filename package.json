@@ -4,7 +4,7 @@
   "description": "A simple wishlist api",
   "main": "index.js",
   "scripts": {
-    "test": "mocha test",
+    "test": "NODE_ENV=test mocha test",
     "start": "babel-node index.js",
     "babel-node": "babel-node"
   },
@@ -26,8 +26,11 @@
     "jwt-simple": "^0.5.0",
     "morgan": "^1.7.0",
     "mysql": "^2.11.1",
+    "passport": "^0.3.2",
+    "passport-jwt": "^2.1.0",
     "pg": "^6.0.3",
     "pg-hstore": "^2.3.2",
+    "pg-native": "^1.10.0",
     "request": "^2.74.0",
     "sequelize": "^3.23.6",
     "sequelize-cli": "^2.4.0",

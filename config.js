@@ -1,17 +1,11 @@
-module.exports = {
-  development : {
-    secret: '9080982%#@&^',
-    database: 'whishlist',
-    username: 'danjesus',
-    password: null,
-    host: '127.0.0.1',
-    params: {
-      dialect: 'postgres',
-      logging: false,
-      define: {
-        underscored: true
-      }
-    },
-    port: 3000
+'use strict';
+
+module.exports = app => {
+  const ENV = process.env.NODE_ENV;
+
+  if (ENV) {
+    return require(`./config.${ENV}.js`);
   }
+
+  return require('./config.development.js');
 };

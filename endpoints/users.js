@@ -1,15 +1,11 @@
 'use strict';
 
 module.exports = app => {
-    app.get('/api/user', (req, res) => {
+    app.get('/api/user/:id', (req, res) => {
 
     });
 
-    app.post('/api/user', (req, res) => {
-
-    });
-
-    app.put('/api/user', (req, res) => {
+    app.put('/api/user/:id', (req, res) => {
 
     });
 

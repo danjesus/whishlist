@@ -45,7 +45,7 @@ module.exports = app => {
             .status(201)
             .json({
               message: 'User created'
-            })
+            });
         })
         .catch(err => {
           res

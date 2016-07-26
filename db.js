@@ -9,7 +9,7 @@ let db = null;
 module.exports = (app) => {
 
   if (null !== db) return db;
-  let config = app.config[app.get('env')];
+  let config = app.config;
   
   let sequelize = new Sequelize(
     config.database,
