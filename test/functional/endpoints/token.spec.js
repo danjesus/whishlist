@@ -1,20 +1,19 @@
 'use strict';
 
+import {createUser, emptyUsers} from './fixture';
+
 describe('Token route', () => {
   const User = app.db.models.User;
 
   beforeEach(done => {
-    User
-      .destroy({ where: {} })
-      .then(
-      () => User.create({
-        name: 'No Body',
-        email: 'nobody@gmail.com',
-        password: '123456'
-      })
-        .then(done())
-      );
-  })
+    createUser().then(user => {
+      done();
+    });
+  });
+
+  afterEach(done => {
+    emptyUsers().then(() => done());
+  });
 
   it('should return a valid token', done => {
     request.post('/token')
