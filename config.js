@@ -7,7 +7,10 @@ module.exports = {
     host: '127.0.0.1',
     params: {
       dialect: 'postgres',
-      logging: false
+      logging: false,
+      define: {
+        underscored: true
+      }
     },
     port: 3000
   }
