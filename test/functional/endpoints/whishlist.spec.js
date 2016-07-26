@@ -1,6 +1,6 @@
 'use strict';
 
-import {createWhishlist} from './fixture';
+import {createWhishlist, emptyWhishlists, emptyUsers} from './fixture';
 import jwt from 'jsonwebtoken';
 
 describe('Whishlist route', () => {
@@ -13,6 +13,12 @@ describe('Whishlist route', () => {
       token = jwt.sign({ id: user.id }, app.get('jwtSecret'));
       fakeWhishes = whishes;
       done();
+    });
+  });
+
+  afterEach(done=> {
+    emptyUsers().then(() => {
+      emptyWhishlists().then(() => done())
     });
   });
 
@@ -44,7 +50,30 @@ describe('Whishlist route', () => {
       })
       .expect(201)
       .end((err, res) => {
+        assert.equal("New Mac Book retina", res.body.name);
+        assert.equal(1000, res.body.average_value);
+        assert.equal("Novo Macbook test", res.body.description);
         done(err);
       })
   });
+
+  it('should update a whish list item', done => {
+    request.put(`/whishlist/${fakeWhishes[0].id}`)
+      .set('Authorization', `JWT ${token}`)
+      .send({
+        name: 'Ipad',
+        description: 'Ipad new',
+        average_value: 2009.00
+      })
+      .expect(204)
+      .end((err, res) => done(err));
+  });
+
+  it('should delete a whish list item', done => {
+    request.delete(`/whishlist/${fakeWhishes[0].id}`)
+      .set('Authorization', `JWT ${token}`)
+      .expect(204)
+      .end((err, res) => done(err));
+  });
+
 });
