@@ -6,4 +6,4 @@ public/apidoc
 .DS_Store
 whishlist_test.sqlite
 resources/*
-
+config.production.js
