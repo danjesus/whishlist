@@ -6,7 +6,13 @@ import jwt from 'jsonwebtoken';
 describe('Logout route', () => {
 
   let token;
-  
+
+  before(done => {
+    app.db.sequelize.sync().then(() => {
+      done()
+    });
+  });
+
   beforeEach(done => {
     createUser().then(user => {
       token = jwt.sign({ id: user.id }, app.get('jwtSecret'));

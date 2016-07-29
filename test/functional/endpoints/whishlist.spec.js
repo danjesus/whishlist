@@ -8,6 +8,12 @@ describe('Whishlist route', () => {
   let token;
   let fakeWhishes;
 
+  before(done => {
+    app.db.sequelize.sync().then(() => {
+      done()
+    });
+  });
+
   beforeEach(done => {
     createWhishlist((whishes, user) => {
       token = jwt.sign({ id: user.id }, app.get('jwtSecret'));

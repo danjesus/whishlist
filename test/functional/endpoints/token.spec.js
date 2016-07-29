@@ -4,7 +4,13 @@ import {createUser, emptyUsers} from './fixture';
 
 describe('Token route', () => {
   const User = app.db.models.User;
-  
+
+  before(done => {
+    app.db.sequelize.sync().then(() => {
+      done()
+    });
+  });
+
   beforeEach(done => {
     createUser().then(user => {
       done();

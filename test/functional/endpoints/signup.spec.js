@@ -1,7 +1,13 @@
 'use strict';
 
 describe('Signup route', () => {
-  
+
+  before(done => {
+    app.db.sequelize.sync().then(() => {
+      done()
+    });
+  });
+
   it("should create a user", done => {
     request.post('/signup')
       .send({

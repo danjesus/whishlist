@@ -7,6 +7,12 @@ describe('User route', () => {
 
   let token;
 
+  before(done => {
+    app.db.sequelize.sync().then(() => {
+      done()
+    });
+  });
+
   beforeEach(done => {
     createUser().then(user => {
       token = jwt.sign({ id: user.id }, app.get('jwtSecret'));
