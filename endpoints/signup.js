@@ -19,7 +19,7 @@ module.exports = app => {
    *      "name": "Steve woz",
    *      "zipcode": "04429280"
    *    }
-   * @apiSuccess {String} token Authenticated user token
+   * @apiSuccess {String} data Sucess message
    * @apiSuccessExample {json} Success
    *    HTTP/1.1 201 OK
    *   {
