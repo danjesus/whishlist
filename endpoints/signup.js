@@ -5,6 +5,29 @@ import request from 'request';
 module.exports = app => {
   const User = app.db.models.User;
 
+  /**
+   * @api {post} /signup Create a user
+   * @apiGroup Crendential
+   * @apiParam {String} name User name
+   * @apiParam {String} email User email
+   * @apiParam {String} password User password
+   * @apiParam {String} zipcode User brazil postal code 
+   * @apiParamExample {json} entry
+   *    {
+   *      "email": "steve.woz@apple.com",
+   *      "password": "123456",
+   *      "name": "Steve woz",
+   *      "zipcode": "04429280"
+   *    }
+   * @apiSuccess {String} token Authenticated user token
+   * @apiSuccessExample {json} Success
+   *    HTTP/1.1 201 OK
+   *   {
+   *      message: 'User created'
+   *   }
+   * @apiErrorExample {json} Invalid parameters
+   *    HTTP/1.1 400 Bad Request
+   */
   app.post('/signup', (req, res) => {
 
     if (!req.body.name || !req.body.email || !req.body.password || !req.body.zipcode) {
