@@ -11,6 +11,9 @@
     "pm2": "pm2 delete ecosystem.json; pm2 startOrReload ecosystem.json --interpreter babel-node",
     "production": "export NODE_ENV=production; npm run pm2"
   },
+  "engines": {
+    "node": "6.3.0"   
+  },
   "author": "Dan Jesus <danper.jesus@gmail.com> (danjesus.github.io)",
   "license": "MIT",
   "dependencies": {
