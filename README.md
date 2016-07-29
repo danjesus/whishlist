@@ -6,7 +6,7 @@ A simple whishlist made with nodejs, express and postgresql
 * PostgreSQL
 
 ### Install app dependecies 
-```$npm install``` 
+```$ npm install``` 
 
 ### How to use
 Create a postgresql database
@@ -16,8 +16,21 @@ Create a postgresql database
 Put your credentials in config.development.js
 
 ### Run tests
-Test are runing over sqlite database
+Tests are running over sqlite database
 ```$ npm test```
 
 ### Run local
 ```$ npm start```
+
+### Production
+
+### Creates copy config.development.js to config.production.js
+```$ cp config.development.js config.production.js```
+
+### Run npm production command
+```$ npm run production```
+
+### Api docs
+
+To generate apidoc run
+```$ npm rum apidoc```
