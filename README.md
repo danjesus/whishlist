@@ -33,4 +33,4 @@ Tests are running over sqlite database
 ### Api docs
 
 To generate apidoc run
-```$ npm rum apidoc```
+```$ npm run apidoc```
