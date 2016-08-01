@@ -1,5 +1,5 @@
 # whishlist
-A simple whishlist made with nodejs, express and postgresql
+A simple whishlist made with nodejs, express and postgresql, on top of ES6 
 
 ### System Dependencies
 * NodeJs V6
