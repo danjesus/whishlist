@@ -1,6 +1,8 @@
 # whishlist
 A simple whishlist made with nodejs, express and postgresql, on top of ES6 
 
+[![Code Climate](https://codeclimate.com/github/danjesus/whishlist/badges/gpa.svg)](https://codeclimate.com/github/danjesus/whishlist)
+
 ### System Dependencies
 * NodeJs V6
 * PostgreSQL
