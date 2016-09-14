@@ -1,5 +1,5 @@
 # whishlist
-A simple whishlist made with nodejs, express and postgresql, on top of ES6 
+A simple whishlist made on top of ES6 with nodejs, express and postgresql. 
 
 [![Code Climate](https://codeclimate.com/github/danjesus/whishlist/badges/gpa.svg)](https://codeclimate.com/github/danjesus/whishlist)
 
@@ -25,6 +25,7 @@ Tests are running over sqlite database
 ```$ npm start```
 
 ### Production
+```$ npm run production```
 
 ### Creates copy config.development.js to config.production.js
 ```$ cp config.development.js config.production.js```
