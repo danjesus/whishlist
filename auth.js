@@ -23,20 +23,12 @@ module.exports = app => {
 
   passport.use(strategy);
 
-  passport.serializeUser((user, done) => {
-    done(null, user);
-  });
+  passport.serializeUser((user, done) => done(null, user));
 
-  passport.deserializeUser((user, done) => {
-    done(null, user);
-  });
+  passport.deserializeUser((user, done) => done(null, user));
 
   return {
-    init: () => {
-      return passport.initialize();
-    },
-    authenticate: () => {
-      return passport.authenticate('jwt', config.secret);
-    },
+    init: () => passport.initialize(),
+    authenticate: () => passport.authenticate('jwt', config.secret),
   };
 };

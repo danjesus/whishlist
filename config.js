@@ -1,11 +1,7 @@
 'use strict';
 
-module.exports = app => {
-  const ENV = process.env.NODE_ENV;
+module.exports = () => {
+  const ENV = process.env.NODE_ENV || 'development';
 
-  if (ENV) {
-    return require(`./config.${ENV}.js`);
-  }
-
-  return require('./config.development.js');
+  return require(`./config.${ENV}.js`);
 };
