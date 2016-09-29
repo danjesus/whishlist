@@ -11,7 +11,7 @@ module.exports = app => {
    * @apiParam {String} name User name
    * @apiParam {String} email User email
    * @apiParam {String} password User password
-   * @apiParam {String} zipcode User brazil postal code 
+   * @apiParam {String} zipcode User brazil postal code
    * @apiParamExample {json} entry
    *    {
    *      "email": "steve.woz@apple.com",
@@ -29,52 +29,50 @@ module.exports = app => {
    *    HTTP/1.1 400 Bad Request
    */
   app.post('/signup', (req, res) => {
-
     if (!req.body.name || !req.body.email || !req.body.password || !req.body.zipcode) {
       return res
         .status(400)
         .json({
-          message: 'Invalid parameters'
+          message: 'Invalid parameters',
         });
     }
 
-    let zipCodeFinderUrl = 'http://correiosapi.apphb.com/cep/' + req.body.zipcode;
+    const zipCodeFinderUrl = 'http://correiosapi.apphb.com/cep/' + req.body.zipcode;
 
     request(zipCodeFinderUrl, (err, response, body) => {
-
       if (err) {
         return res
           .status(400)
           .json({
-            message: 'Zip code finder request error'
+            message: 'Zip code finder request error',
           });
       }
 
-      let fullAddress = JSON.parse(body);
+      const fullAddress = JSON.parse(body);
 
       if (fullAddress.message) {
         return res
           .status(400)
           .json({
-            message: 'Address not found'
+            message: 'Address not found',
           });
       }
 
       req.body.full_address = fullAddress;
-      
+
       User.create(req.body)
         .then(result => {
           res
             .status(201)
             .json({
-              message: 'User created'
+              message: 'User created',
             });
         })
         .catch(err => {
           res
             .status(412)
             .json({
-              message: err.message
+              message: err.message,
             });
         });
     });

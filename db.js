@@ -7,11 +7,10 @@ import path from 'path';
 let db = null;
 
 module.exports = (app) => {
-
   if (null !== db) return db;
-  let config = app.config;
-  
-  let sequelize = new Sequelize(
+  const config = app.config;
+
+  const sequelize = new Sequelize(
     config.database,
     config.username,
     config.password,
@@ -21,14 +20,14 @@ module.exports = (app) => {
   db = {
     sequelize,
     Sequelize,
-    models: {}
+    models: {},
   };
 
-  let dir = path.join(__dirname, 'models');
+  const dir = path.join(__dirname, 'models');
 
   fs.readdirSync(dir).forEach(file => {
-    let modelDir = path.join(dir, file);
-    let model = sequelize.import(modelDir);
+    const modelDir = path.join(dir, file);
+    const model = sequelize.import(modelDir);
 
     if (model)
       db.models[model.name] = model;

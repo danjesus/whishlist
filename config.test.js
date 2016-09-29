@@ -1,19 +1,19 @@
 module.exports = {
-  database: "whishlist_test",
-  username: "",
-  password: "",
+  database: 'whishlist_test',
+  username: '',
+  password: '',
   params: {
-    dialect: "sqlite",
+    dialect: 'sqlite',
     logging: false,
-    storage: "whishlist_test.sqlite",
+    storage: 'whishlist_test.sqlite',
     sync: {
-      force: true
+      force: true,
     },
     define: {
-      underscored: true
-    }
+      underscored: true,
+    },
   },
-  secret: "()*()()*dsdasd987)",
-  jwtSession: {session: false},
-  port: 3000
+  secret: '()*()()*dsdasd987)',
+  jwtSession: { session: false },
+  port: 3000,
 };

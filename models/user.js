@@ -1,29 +1,27 @@
-'use strict';
-
 import PasswordFactory from '../lib/password.factory';
 
 module.exports = function (sequelize, DataTypes) {
-  var User = sequelize.define('User',
+  const User = sequelize.define('User',
     {
       name: DataTypes.STRING,
       email: DataTypes.STRING,
       password: DataTypes.STRING,
-      full_address: DataTypes.JSON
+      full_address: DataTypes.JSON,
     },
     {
       hooks: {
         beforeCreate: user => {
-          user.password = PasswordFactory.create(user.password)
-        }
+          user.password = PasswordFactory.create(user.password);
+        },
       },
       classMethods: {
-        associate: function (models) {
+        associate(models) {
           User.hasMany(models.Whishlist);
         },
         isPassword: (encodedPassword, password) => {
           return PasswordFactory.compare(password, encodedPassword);
-        }
-      }
+        },
+      },
     });
   return User;
 };

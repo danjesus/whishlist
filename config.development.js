@@ -13,8 +13,8 @@ module.exports = {
       logger.info(`[${new Date()}] ${sql}`);
     },
     define: {
-      underscored: true
-    }
+      underscored: true,
+    },
   },
-  port: 3000
+  port: 3000,
 };

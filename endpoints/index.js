@@ -15,7 +15,7 @@ module.exports = app => {
     res
       .status(200)
       .json({
-        status: 'Whishlist API ready'
+        status: 'Whishlist API ready',
       });
   });
-}
+};

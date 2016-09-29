@@ -1,12 +1,10 @@
-'use strict';
-
 import express from 'express';
 import consign from 'consign';
 
 const app = express();
 
-consign({verbose: false})
-.include('./config.js')
+consign({ verbose: false })
+  .include('./config.js')
   .then('db.js')
   .then('auth.js')
   .then('lib/middlewares.js')
@@ -14,4 +12,4 @@ consign({verbose: false})
   .then('lib/boot.js')
   .into(app);
 
-  module.exports = app;
+module.exports = app;

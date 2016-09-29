@@ -23,3 +23,5 @@ ratings:
   - "**.rb"
 exclude_paths:
 - test/
+- "migrations/20160725125514-create-user.js"
+- "migrations/20160725130024-create-whishlist.js"

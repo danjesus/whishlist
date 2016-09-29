@@ -23,7 +23,7 @@ module.exports = app => {
    *    }
    * @apiErrorExample {json} Authentication error
    *    HTTP/1.1 401 Unauthorized
-   * 
+   *
    * @apiErrorExample {json} Invalid parameters
    *    HTTP/1.1 400 Bad Request
    */
@@ -32,16 +32,15 @@ module.exports = app => {
       return res.sendStatus(400);
     }
 
-    let email = req.body.email;
-    let password = req.body.password;
+    const email = req.body.email;
+    const password = req.body.password;
 
     User.findOne({
       where: {
-        email: email
-      }
+        email,
+      },
     })
       .then(user => {
-
         if (!user || !User.isPassword(user.password, password)) {
           return res.sendStatus(401);
         }
@@ -51,8 +50,8 @@ module.exports = app => {
         res
           .status(200)
           .json({
-            token: jwt.sign(payload, app.get('jwtSecret'))
+            token: jwt.sign(payload, app.get('jwtSecret')),
           });
       });
-  })
-}
+  });
+};

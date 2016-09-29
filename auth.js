@@ -1,31 +1,28 @@
-'use strict';
-
 import passport from 'passport';
-import {Strategy, ExtractJwt} from 'passport-jwt';
+import { Strategy, ExtractJwt } from 'passport-jwt';
 
 module.exports = app => {
   const User = app.db.models.User;
   const config = app.config;
   const params = {
     secretOrKey: config.secret,
-    jwtFromRequest: ExtractJwt.fromAuthHeader()
-  }
+    jwtFromRequest: ExtractJwt.fromAuthHeader(),
+  };
 
   const strategy = new Strategy(params, (payload, done) => {
-  
     User.findById(payload.id)
       .then(user => {
         if (user) {
           return done(null, user);
         }
 
-        done(null, false);
+        return done(null, false);
       })
       .catch(err => done(err, null));
   });
 
   passport.use(strategy);
-  
+
   passport.serializeUser((user, done) => {
     done(null, user);
   });
@@ -40,6 +37,6 @@ module.exports = app => {
     },
     authenticate: () => {
       return passport.authenticate('jwt', config.secret);
-    }
+    },
   };
 };

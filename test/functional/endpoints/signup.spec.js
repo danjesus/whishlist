@@ -1,24 +1,21 @@
-'use strict';
-
 describe('Signup route', () => {
-
   before(done => {
     app.db.sequelize.sync().then(() => {
-      done()
+      done();
     });
   });
 
-  it("should create a user", done => {
+  it('should create a user', done => {
     request.post('/signup')
       .send({
         name: 'Jhon due',
         email: 'jhondue@gmail.com',
         password: '123456',
-        zipcode: '04429280'
+        zipcode: '04429280',
       })
       .expect(201)
       .end((err, res) => {
-        let expectedResult = { message: "User created" };
+        const expectedResult = { message: 'User created' };
         assert.deepEqual(res.body, expectedResult);
         done(err);
       });
@@ -28,9 +25,9 @@ describe('Signup route', () => {
     request.post('/signup')
       .expect(400)
       .end((err, res) => {
-        let expectedResult = { message: 'Invalid parameters' };
+        const expectedResult = { message: 'Invalid parameters' };
         assert.deepEqual(res.body, expectedResult);
-        done();
+        done(err);
       });
   });
 
@@ -40,14 +37,13 @@ describe('Signup route', () => {
         name: 'Jhon due',
         email: 'jhondue@gmail.com',
         password: '123456',
-        zipcode: '00000'
+        zipcode: '00000',
       })
       .expect(400)
       .end((err, res) => {
-        let expectedResult = { message: 'Address not found' };
+        const expectedResult = { message: 'Address not found' };
         assert.deepEqual(res.body, expectedResult);
-        done();
+        done(err);
       });
   });
-
 });

@@ -1,15 +1,12 @@
-'use strict';
-
-import {createUser, emptyUsers} from './fixture';
 import jwt from 'jsonwebtoken';
+import { createUser, emptyUsers } from './fixture';
 
 describe('User route', () => {
-
   let token;
 
   before(done => {
     app.db.sequelize.sync().then(() => {
-      done()
+      done();
     });
   });
 
@@ -28,7 +25,7 @@ describe('User route', () => {
     request.get('/user')
       .set('Authorization', `JWT ${token}`)
       .expect(200)
-      .end((err, res) => done(err));
+      .end(err => done(err));
   });
 
   it('should update user data', done => {
@@ -37,10 +34,10 @@ describe('User route', () => {
         name: 'Steve woz',
         email: 'steve@apple.com',
         password: 'newpass',
-        zipcode: '04195020'
+        zipcode: '04195020',
       })
       .set('Authorization', `JWT ${token}`)
       .expect(204)
-      .end((err, res) => done(err));
+      .end(err => done(err));
   });
-})
+});

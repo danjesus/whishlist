@@ -1,5 +1,3 @@
-'use strict';
-
 module.exports = app => {
   const Whishlist = app.db.models.Whishlist;
   /**
@@ -8,8 +6,8 @@ module.exports = app => {
      * @apiHeader {String} Authorization token
      * @apiHeaderExample {json} Header
      *    {"Authorization": "JWT token.xpto"}
-     * @apiParam {query} name Query string name 
-     * @apiSuccess {Integer} id Item id 
+     * @apiParam {query} name Query string name
+     * @apiSuccess {Integer} id Item id
      * @apiSuccess {String} name Item name
      * @apiSuccess {String} description Item description
      * @apiSuccess {Decimal} average_value Avg item value
@@ -39,24 +37,23 @@ module.exports = app => {
   app.route('/whishlist')
     .all(app.auth.authenticate())
     .get((req, res) => {
-
-      let queryParams = {
+      const queryParams = {
         attributes: [
           'name',
           'id',
           'description',
           'average_value',
           'created_at',
-          'updated_at'
+          'updated_at',
         ],
         where: {
-          user_id: req.user.id
-        }
+          user_id: req.user.id,
+        },
       };
 
       if (req.query.name) {
         queryParams.where.name = {
-          $like: `%${req.query.name}%`
+          $like: `%${req.query.name}%`,
         };
       }
 
@@ -81,7 +78,7 @@ module.exports = app => {
      *      average_value: 1000,
      *      description: "Novo Macbook test"
      *    }
-     * @apiSuccess {Integer} id Item id 
+     * @apiSuccess {Integer} id Item id
      * @apiSuccess {String} name Item name
      * @apiSuccess {String} description Item description
      * @apiSuccess {Decimal} average_value Avg item value
@@ -103,7 +100,6 @@ module.exports = app => {
      *    HTTP/1.1 400 Bad Request
      */
     .post((req, res) => {
-
       if (!req.body.name || !req.body.description || !req.body.average_value) {
         return res.sendStatus(400);
       }
@@ -112,13 +108,13 @@ module.exports = app => {
 
       Whishlist.create(req.body)
         .then(result => {
-          let item = {
+          const item = {
             id: result.id,
             name: result.name,
             description: result.description,
             average_value: result.average_value,
             created_at: result.created_at,
-            updated_at: result.updated_at
+            updated_at: result.updated_at,
           };
 
           res
@@ -129,7 +125,7 @@ module.exports = app => {
           res
             .status(412)
             .json({
-              message: err.message
+              message: err.message,
             });
         });
     });
@@ -143,7 +139,7 @@ module.exports = app => {
      * @apiHeaderExample {json} Header
      *    {"Authorization": "JWT token.xpto"}
      * @apiParam {id} id Whishlist item id
-     * @apiSuccess {Integer} id Item id 
+     * @apiSuccess {Integer} id Item id
      * @apiSuccess {String} name Item name
      * @apiSuccess {String} description Item description
      * @apiSuccess {Decimal} average_value Avg item value
@@ -168,7 +164,7 @@ module.exports = app => {
       Whishlist.findOne({
         where: {
           id: req.params.id,
-          user_id: req.user.id
+          user_id: req.user.id,
         },
         attributes: [
           'name',
@@ -176,8 +172,8 @@ module.exports = app => {
           'description',
           'average_value',
           'created_at',
-          'updated_at'
-        ]
+          'updated_at',
+        ],
       })
         .then(result => {
           if (result) {
@@ -214,10 +210,10 @@ module.exports = app => {
       Whishlist.update(req.body, {
         where: {
           id: req.params.id,
-          user_id: req.user.id
-        }
+          user_id: req.user.id,
+        },
       })
-        .then(result => res.sendStatus(204))
+        .then(() => res.sendStatus(204))
         .catch(err => {
           res.status(412).json({ message: err.message });
         });
@@ -228,7 +224,7 @@ module.exports = app => {
      * @apiHeader {String} Authorization token
      * @apiHeaderExample {json} Header
      *    {"Authorization": "JWT token.xpto"}
-     * @apiParam {id} id Whishlist item id 
+     * @apiParam {id} id Whishlist item id
      * @apiSuccessExample {json} Success
      *    HTTP/1.1 204 No Content
      * @apiErrorExample {json} Query error
@@ -238,8 +234,8 @@ module.exports = app => {
       Whishlist.destroy({
         where: {
           id: req.params.id,
-          user_id: req.user.id
-        }
+          user_id: req.user.id,
+        },
       })
         .then(result => res.sendStatus(204))
         .catch(err => {

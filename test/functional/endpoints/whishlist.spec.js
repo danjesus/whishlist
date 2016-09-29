@@ -1,16 +1,13 @@
-'use strict';
-
-import {createWhishlist, emptyWhishlists, emptyUsers} from './fixture';
 import jwt from 'jsonwebtoken';
+import { createWhishlist, emptyWhishlists, emptyUsers } from './fixture';
 
 describe('Whishlist route', () => {
-
   let token;
   let fakeWhishes;
 
   before(done => {
     app.db.sequelize.sync().then(() => {
-      done()
+      done();
     });
   });
 
@@ -24,7 +21,7 @@ describe('Whishlist route', () => {
 
   afterEach(done => {
     emptyUsers().then(() => {
-      emptyWhishlists().then(() => done())
+      emptyWhishlists().then(() => done());
     });
   });
 
@@ -33,7 +30,6 @@ describe('Whishlist route', () => {
       .set('Authorization', `JWT ${token}`)
       .expect(200)
       .end((err, res) => {
-
         const TOTAL = res.body.length;
 
         for (let index = 0; index < TOTAL; index++) {
@@ -51,8 +47,7 @@ describe('Whishlist route', () => {
       .set('Authorization', `JWT ${token}`)
       .expect(200)
       .end((err, res) => {
-
-        let index = 0;
+        const index = 0;
 
         assert.equal(res.body.length, 1);
         assert.equal(fakeWhishes[index].average_value, res.body[index].average_value);
@@ -67,17 +62,17 @@ describe('Whishlist route', () => {
     request.post('/whishlist')
       .set('Authorization', `JWT ${token}`)
       .send({
-        name: "New Mac Book retina",
+        name: 'New Mac Book retina',
         average_value: 1000,
-        description: "Novo Macbook test"
+        description: 'Novo Macbook test',
       })
       .expect(201)
       .end((err, res) => {
-        assert.equal("New Mac Book retina", res.body.name);
+        assert.equal('New Mac Book retina', res.body.name);
         assert.equal(1000, res.body.average_value);
-        assert.equal("Novo Macbook test", res.body.description);
+        assert.equal('Novo Macbook test', res.body.description);
         done(err);
-      })
+      });
   });
 
   it('should retrieve a whish list item', done => {
@@ -98,17 +93,16 @@ describe('Whishlist route', () => {
       .send({
         name: 'Ipad',
         description: 'Ipad new',
-        average_value: 2009.00
+        average_value: 2009.00,
       })
       .expect(204)
-      .end((err, res) => done(err));
+      .end(err => done(err));
   });
 
   it('should delete a whish list item', done => {
     request.delete(`/whishlist/${fakeWhishes[0].id}`)
       .set('Authorization', `JWT ${token}`)
       .expect(204)
-      .end((err, res) => done(err));
+      .end(err => done(err));
   });
-
 });
