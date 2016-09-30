@@ -1,6 +1,6 @@
 import PasswordFactory from '../lib/password.factory';
 
-module.exports = function (sequelize, DataTypes) {
+module.exports = (sequelize, DataTypes) => {
   const User = sequelize.define('User',
     {
       name: DataTypes.STRING,
@@ -11,17 +11,18 @@ module.exports = function (sequelize, DataTypes) {
     {
       hooks: {
         beforeCreate: user => {
-          user.password = PasswordFactory.create(user.password);
+          const newUser = user;
+
+          newUser.password = PasswordFactory.create(newUser.password);
         },
       },
       classMethods: {
         associate(models) {
           User.hasMany(models.Whishlist);
         },
-        isPassword: (encodedPassword, password) => {
-          return PasswordFactory.compare(password, encodedPassword);
-        },
+        isPassword: (encPass, pass) => PasswordFactory.compare(pass, encPass),
       },
     });
+
   return User;
 };

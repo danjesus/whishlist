@@ -1,4 +1,4 @@
-'use strict';
+
 
 import PasswordFactory from '../lib/password.factory';
 
@@ -66,7 +66,9 @@ module.exports = app => {
      * @apiErrorExample {json} Query error
      *    HTTP/1.1 412 Precondition Failed
      */
-    .put((req, res) => {
+    .put((_req, res) => {
+      const req = _req;
+
       if (req.body.password) {
         req.body.password = PasswordFactory.create(req.body.password);
       }
@@ -76,9 +78,7 @@ module.exports = app => {
           id: req.user.id,
         },
       })
-        .then(result => res.sendStatus(204))
-        .catch(err => {
-          res.status(412).json({ message: err.message });
-        });
+        .then(() => res.sendStatus(204))
+        .catch(err => res.status(412).json({ message: err.message }));
     });
 };

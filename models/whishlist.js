@@ -1,4 +1,4 @@
-module.exports = function (sequelize, DataTypes) {
+module.exports = (sequelize, DataTypes) => {
   const Whishlist = sequelize.define('Whishlist', {
     user_id: DataTypes.INTEGER,
     name: DataTypes.STRING,
@@ -11,5 +11,6 @@ module.exports = function (sequelize, DataTypes) {
       },
     },
   });
+
   return Whishlist;
 };

@@ -99,14 +99,16 @@ module.exports = app => {
      * @apiErrorExample {json} Invalid Parameters
      *    HTTP/1.1 400 Bad Request
      */
-    .post((req, res) => {
+    .post((_req, res) => {
+      const req = _req;
+
       if (!req.body.name || !req.body.description || !req.body.average_value) {
         return res.sendStatus(400);
       }
 
       req.body.user_id = req.user.id;
 
-      Whishlist.create(req.body)
+      return Whishlist.create(req.body)
         .then(result => {
           const item = {
             id: result.id,
@@ -237,9 +239,7 @@ module.exports = app => {
           user_id: req.user.id,
         },
       })
-        .then(result => res.sendStatus(204))
-        .catch(err => {
-          res.status(412).json({ message: err.message });
-        });
+        .then(() => res.sendStatus(204))
+        .catch(err => res.status(412).json({ message: err.message }));
     });
 };

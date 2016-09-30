@@ -1,4 +1,4 @@
-'use strict';
+
 
 import jwt from 'jsonwebtoken';
 
@@ -35,7 +35,7 @@ module.exports = app => {
     const email = req.body.email;
     const password = req.body.password;
 
-    User.findOne({
+    return User.findOne({
       where: {
         email,
       },
@@ -47,7 +47,7 @@ module.exports = app => {
 
         const payload = { id: user.id };
 
-        res
+        return res
           .status(200)
           .json({
             token: jwt.sign(payload, app.get('jwtSecret')),

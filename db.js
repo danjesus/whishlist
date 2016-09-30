@@ -1,5 +1,3 @@
-'use strict';
-
 import Sequelize from 'sequelize';
 import fs from 'fs';
 import path from 'path';
@@ -7,7 +5,7 @@ import path from 'path';
 let db = null;
 
 module.exports = (app) => {
-  if (null !== db) return db;
+  if (db !== null) return db;
   const config = app.config;
 
   const sequelize = new Sequelize(
@@ -29,8 +27,9 @@ module.exports = (app) => {
     const modelDir = path.join(dir, file);
     const model = sequelize.import(modelDir);
 
-    if (model)
+    if (model) {
       db.models[model.name] = model;
+    }
   });
 
   Object.keys(db.models).forEach(key => {

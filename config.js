@@ -1,7 +1,3 @@
-'use strict';
+const config = require(`./config.${process.env.NODE_ENV || 'development'}.js`);
 
-module.exports = () => {
-  const ENV = process.env.NODE_ENV || 'development';
-
-  return require(`./config.${ENV}.js`);
-};
+module.exports = () => config;
