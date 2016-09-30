@@ -15,11 +15,7 @@
         "sourceType": "module"
     },
     "rules": {
-        "semi": 2,
-        "import/no-extraneous-dependencies": [
-            "error": {
-                "devDependencies": true
-            }]
+        "semi": 2
     },
     "globals": {
         "describe": true,
