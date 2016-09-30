@@ -37,3 +37,10 @@ Tests are running over sqlite database
 
 To generate apidoc run
 ```$ npm run apidoc```
+
+### Quality Tools
+To run eslint 
+```npm run eslint```
+
+To tun eslint with automativc fixes
+```npm run eslint:fix```
