@@ -40,7 +40,7 @@ To generate apidoc run
 
 ### Quality Tools
 To run eslint 
-```npm run eslint```
+```npm run lint```
 
 To tun eslint with automativc fixes
-```npm run eslint:fix```
+```npm run lint:fix```
