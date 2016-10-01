@@ -1,5 +1,7 @@
 import logger from './lib/logger';
 
+var dbHost = process.env.DB_HOST || '127.0.0.1';
+
 module.exports = {
   secret: '9080982%#@&^',
   jwtSession: { session: false },
@@ -7,7 +9,7 @@ module.exports = {
   username: 'danjesus',
   password: null,
   params: {
-    host: '127.0.0.1',
+    host: dbHost,
     dialect: 'postgres',
     logging: (sql) => {
       logger.info(`[${new Date()}] ${sql}`);

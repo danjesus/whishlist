@@ -1,0 +1,19 @@
+version: "2"
+
+services:
+  whishlist:
+    build: ./
+    ports:
+      - 3000:3000
+    environment:
+      DB_HOST: db
+    depends_on:
+      - db
+    command: start
+
+  db:
+    image: postgres:9.6.0
+    environment:
+      POSTGRES_USER: danjesus
+      POSTGRES_DB: whishlist
+
