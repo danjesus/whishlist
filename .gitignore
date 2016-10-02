@@ -9,3 +9,4 @@ resources/*
 config.production.js
 npm-debug.log
 .idea
+coverage
