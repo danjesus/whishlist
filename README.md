@@ -10,7 +10,7 @@ A simple whishlist made on top of ES6 with nodejs, express, postgresql and docke
 * NodeJs V6
 * PostgreSQL
 
-## Run project with docker-compose
+### Run project with docker-compose
 ```$ docker-compose build; docker-compose up```
 
 ### Install app dependecies 
