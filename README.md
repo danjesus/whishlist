@@ -1,5 +1,6 @@
-# whishlist
-A simple whishlist made on top of ES6 with nodejs, express and postgresql. 
+# Whishlist Api built in NodeJs
+ 
+A simple whishlist made on top of ES6 with nodejs, express, postgresql and docker :whale:. 
 
 [![Code Climate](https://codeclimate.com/github/danjesus/whishlist/badges/gpa.svg)](https://codeclimate.com/github/danjesus/whishlist)
 [![Test Coverage](https://codeclimate.com/github/danjesus/whishlist/badges/coverage.svg)](https://codeclimate.com/github/danjesus/whishlist/coverage)
@@ -8,6 +9,9 @@ A simple whishlist made on top of ES6 with nodejs, express and postgresql.
 ### System Dependencies
 * NodeJs V6
 * PostgreSQL
+
+## Run project with docker-compose
+```$ docker-compose build; docker-compose up```
 
 ### Install app dependecies 
 ```$ npm install``` 
@@ -44,5 +48,5 @@ To generate apidoc run
 To run eslint 
 ```npm run lint```
 
-To tun eslint with automativc fixes
+To tun eslint with automatic fixes
 ```npm run lint:fix```
