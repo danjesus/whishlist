@@ -8,3 +8,4 @@ whishlist_test.sqlite
 resources/*
 config.production.js
 npm-debug.log
+.idea

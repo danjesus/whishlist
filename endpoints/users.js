@@ -1,5 +1,3 @@
-
-
 import PasswordFactory from '../lib/password.factory';
 
 module.exports = app => {
