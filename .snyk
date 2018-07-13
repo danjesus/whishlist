@@ -1,0 +1,25 @@
+# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
+version: v1.12.0
+ignore: {}
+# patches apply the minimum changes required to fix a vulnerability
+patch:
+  'npm:hoek:20180212':
+    - passport-jwt > jsonwebtoken > joi > hoek:
+        patched: '2018-07-13T18:46:09.202Z'
+    - passport-jwt > jsonwebtoken > joi > topo > hoek:
+        patched: '2018-07-13T18:46:09.202Z'
+    - sqlite3 > node-pre-gyp > hawk > hoek:
+        patched: '2018-07-13T18:46:09.202Z'
+    - sqlite3 > node-pre-gyp > hawk > boom > hoek:
+        patched: '2018-07-13T18:46:09.202Z'
+    - sqlite3 > node-pre-gyp > hawk > sntp > hoek:
+        patched: '2018-07-13T18:46:09.202Z'
+    - sqlite3 > node-pre-gyp > hawk > cryptiles > boom > hoek:
+        patched: '2018-07-13T18:46:09.202Z'
+  'npm:minimatch:20160620':
+    - sequelize-cli > gulp > vinyl-fs > glob-stream > minimatch:
+        patched: '2018-07-13T18:46:09.202Z'
+    - sequelize-cli > gulp > vinyl-fs > glob-watcher > gaze > globule > minimatch:
+        patched: '2018-07-13T18:46:09.202Z'
+    - sequelize-cli > gulp > vinyl-fs > glob-watcher > gaze > globule > glob > minimatch:
+        patched: '2018-07-13T18:46:09.202Z'

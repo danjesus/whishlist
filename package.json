@@ -12,7 +12,9 @@
     "production": "export NODE_ENV=production; npm run pm2",
     "lint": "eslint '**/*.js'",
     "lint:fix": "eslint '**/*.js' --fix",
-    "coverage": "NODE_ENV=test babel-node ./node_modules/babel-istanbul/lib/cli cover _mocha"
+    "coverage": "NODE_ENV=test babel-node ./node_modules/babel-istanbul/lib/cli cover _mocha",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "engines": {
     "node": "6.3.0"
@@ -30,9 +32,9 @@
     "consign": "^0.1.2",
     "cors": "^2.7.1",
     "express": "^4.14.0",
-    "helmet": "^2.1.1",
+    "helmet": "^3.8.2",
     "http": "0.0.0",
-    "jsonwebtoken": "^7.1.6",
+    "jsonwebtoken": "^8.0.0",
     "jwt-simple": "^0.5.0",
     "morgan": "^1.7.0",
     "mysql": "^2.11.1",
@@ -42,10 +44,11 @@
     "pg-hstore": "^2.3.2",
     "pg-native": "^1.10.0",
     "request": "^2.74.0",
-    "sequelize": "^3.23.6",
-    "sequelize-cli": "^2.4.0",
-    "sqlite3": "^3.1.4",
-    "winston": "^2.2.0"
+    "sequelize": "^4.17.2",
+    "sequelize-cli": "^3.0.0",
+    "sqlite3": "^4.0.0",
+    "winston": "^2.2.0",
+    "snyk": "^1.88.2"
   },
   "devDependencies": {
     "apidoc": "^0.16.1",
@@ -64,5 +67,6 @@
     "nodemon": "^1.9.2",
     "sqlite3": "^3.1.4",
     "supertest": "^1.2.0"
-  }
+  },
+  "snyk": true
 }
