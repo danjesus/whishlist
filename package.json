@@ -12,7 +12,9 @@
     "production": "export NODE_ENV=production; npm run pm2",
     "lint": "eslint '**/*.js'",
     "lint:fix": "eslint '**/*.js' --fix",
-    "coverage": "NODE_ENV=test babel-node ./node_modules/babel-istanbul/lib/cli cover _mocha"
+    "coverage": "NODE_ENV=test babel-node ./node_modules/babel-istanbul/lib/cli cover _mocha",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "engines": {
     "node": "6.3.0"
@@ -45,7 +47,8 @@
     "sequelize": "^3.23.6",
     "sequelize-cli": "^2.4.0",
     "sqlite3": "^3.1.4",
-    "winston": "^2.2.0"
+    "winston": "^2.2.0",
+    "snyk": "^1.189.0"
   },
   "devDependencies": {
     "apidoc": "^0.16.1",
@@ -64,5 +67,6 @@
     "nodemon": "^1.9.2",
     "sqlite3": "^3.1.4",
     "supertest": "^1.2.0"
-  }
+  },
+  "snyk": true
 }
