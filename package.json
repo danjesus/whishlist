@@ -51,22 +51,22 @@
     "snyk": "^1.88.2"
   },
   "devDependencies": {
-    "apidoc": "^0.16.1",
-    "babel-core": "^6.17.0",
-    "babel-eslint": "^7.0.0",
-    "babel-istanbul": "^0.11.0",
-    "babel-register": "^6.16.3",
-    "eslint": "^3.6.1",
-    "eslint-config-airbnb": "^10.0.1",
-    "eslint-plugin-import": "^1.16.0",
-    "eslint-plugin-jsx-a11y": "^2.1.0",
-    "eslint-plugin-react": "^6.1.0",
-    "eslint-plugin-standard": "^2.0.0",
-    "istanbul": "^0.4.5",
-    "mocha": "^2.5.3",
-    "nodemon": "^1.9.2",
-    "sqlite3": "^3.1.4",
-    "supertest": "^1.2.0"
+    "apidoc": "0.16.1",
+    "babel-core": "6.26.3",
+    "babel-eslint": "7.2.3",
+    "babel-istanbul": "0.11.0",
+    "babel-register": "6.26.0",
+    "eslint": "3.19.0",
+    "eslint-config-airbnb": "10.0.1",
+    "eslint-plugin-import": "1.16.0",
+    "eslint-plugin-jsx-a11y": "2.2.3",
+    "eslint-plugin-react": "6.10.3",
+    "eslint-plugin-standard": "2.3.1",
+    "istanbul": "0.4.5",
+    "mocha": "2.5.3",
+    "nodemon": "1.19.4",
+    "sqlite3": "3.1.13",
+    "supertest": "1.2.0"
   },
   "snyk": true
 }
