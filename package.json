@@ -48,7 +48,7 @@
     "sequelize-cli": "^3.0.0",
     "sqlite3": "^4.0.0",
     "winston": "^2.2.0",
-    "snyk": "^1.88.2"
+    "snyk": "^1.316.1"
   },
   "devDependencies": {
     "apidoc": "0.16.1",
