@@ -12,7 +12,7 @@ services:
     command: start
 
   db:
-    image: postgres:9.6.0
+    image: postgres:9.6.21
     environment:
       POSTGRES_USER: danjesus
       POSTGRES_DB: whishlist
