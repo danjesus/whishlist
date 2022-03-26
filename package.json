@@ -63,7 +63,7 @@
     "eslint-plugin-react": "6.10.3",
     "eslint-plugin-standard": "2.3.1",
     "istanbul": "0.4.5",
-    "mocha": "2.5.3",
+    "mocha": "9.2.2",
     "nodemon": "1.19.4",
     "sqlite3": "3.1.13",
     "supertest": "1.2.0"
