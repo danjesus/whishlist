@@ -47,7 +47,7 @@
     "sequelize": "^4.17.2",
     "sequelize-cli": "^3.0.0",
     "sqlite3": "^4.0.0",
-    "winston": "^2.2.0",
+    "winston": "^3.3.0",
     "snyk": "^1.88.2"
   },
   "devDependencies": {
