@@ -44,7 +44,7 @@
     "pg-hstore": "^2.3.2",
     "pg-native": "^1.10.0",
     "request": "^2.74.0",
-    "sequelize": "^4.17.2",
+    "sequelize": "^6.21.2",
     "sequelize-cli": "^3.0.0",
     "sqlite3": "^4.0.0",
     "winston": "^2.2.0",
