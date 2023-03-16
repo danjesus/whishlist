@@ -1,4 +1,4 @@
-FROM node:6.7.0
+FROM node:6.17.1
 
 RUN npm install -g node-gyp
 
