@@ -46,7 +46,7 @@
     "request": "^2.74.0",
     "sequelize": "^4.17.2",
     "sequelize-cli": "^3.0.0",
-    "sqlite3": "^4.0.0",
+    "sqlite3": "^5.0.3",
     "winston": "^2.2.0",
     "snyk": "^1.88.2"
   },
@@ -65,7 +65,7 @@
     "istanbul": "0.4.5",
     "mocha": "2.5.3",
     "nodemon": "1.19.4",
-    "sqlite3": "3.1.13",
+    "sqlite3": "5.0.3",
     "supertest": "1.2.0"
   },
   "snyk": true
