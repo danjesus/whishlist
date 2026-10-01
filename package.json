@@ -38,7 +38,7 @@
     "jwt-simple": "^0.5.0",
     "morgan": "^1.7.0",
     "mysql": "^2.11.1",
-    "passport": "^0.3.2",
+    "passport": "^0.6.0",
     "passport-jwt": "^2.1.0",
     "pg": "^6.0.3",
     "pg-hstore": "^2.3.2",
